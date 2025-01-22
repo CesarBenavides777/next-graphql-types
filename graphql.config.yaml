@@ -1,0 +1,13 @@
+schema:
+  - ${NEXT_PUBLIC_WORDPRESS_URL}/index.php?graphql: # This will be your graphql endpoint
+      headers: 
+        Origin: https://localhost:3000 # Add Headers or any other options as necessary
+generates:
+  ./types/wp.ts: # Will generate a file at this location
+    plugins: # specialized plugins if needed
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+      - 'typescript-nhost'
+    config:
+      withRefetchFn: true
